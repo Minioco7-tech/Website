@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus | MathPhys Nexus</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .topic-grid {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+        .topic-card:hover .topic-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <!-- Navigation content from index.html -->
+    </nav>
+
+    <!-- Calculus Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="mb-12 text-center">
+            <h1 class="text-4xl font-bold text-dark mb-4">Calculus for Physics</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Master the mathematical language of change that underpins classical mechanics, electromagnetism, and quantum physics.
+            </p>
+        </div>
+
+        <!-- Key Topics -->
+        <div class="mb-16">
+            <h2 class="text-2xl font-semibold text-dark mb-8">Key Topics in Calculus</h2>
+            <div class="grid gap-6 topic-grid">
+                <!-- Derivatives -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-lg">
+                                <i data-feather="trending-up" class="text-primary w-6 h-6 topic-icon transition-transform duration-300"></i>
+                            </div>
+                            <h3 class="ml-4 text-lg font-semibold text-dark">Derivatives</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Understanding rates of change from position to velocity to acceleration, with applications across all physics domains.
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary inline-flex items-center">
+                            Explore Derivatives
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Integrals -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-green-100 p-3 rounded-lg">
+                                <i data-feather="layers" class="text-primary w-6 h-6 topic-icon transition-transform duration-300"></i>
+                            </div>
+                            <h3 class="ml-4 text-lg font-semibold text-dark">Integrals</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            From calculating areas to solving differential equations, integrals are fundamental in physics problem-solving.
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary inline-flex items-center">
+                            Explore Integrals
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Multivariable Calc -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-purple-100 p-3 rounded-lg">
+                                <i data-feather="box" class="text-primary w-6 h-6 topic-icon transition-transform duration-300"></i>
+                            </div>
+                            <h3 class="ml-4 text-lg font-semibold text-dark">Multivariable Calculus</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Partial derivatives, gradients, and multiple integrals essential for thermodynamics and field theories.
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary inline-flex items-center">
+                            Explore Multivariable
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Vector Calc -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="flex-shrink-0 bg-yellow-100 p-3 rounded-lg">
+                                <i data-feather="compass" class="text-primary w-6 h-6 topic-icon transition-transform duration-300"></i>
+                            </div>
+                            <h3 class="ml-4 text-lg font-semibold text-dark">Vector Calculus</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Div, grad, and curl operators that form the language of electromagnetism and fluid dynamics.
+                        </p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary inline-flex items-center">
+                            Explore Vector Calculus
+                            <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Physics Applications -->
+        <div class="mb-16">
+            <h2 class="text-2xl font-semibold text-dark mb-8">Physics Applications</h2>
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/3">
+                        <img src="http://static.photos/science/640x360/101" alt="Physics Applications" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 md:w-2/3">
+                        <h3 class="text-xl font-semibold text-dark mb-4">Where Calculus Meets Physics</h3>
+                        <div class="prose">
+                            <ul class="space-y-3">
+                                <li><strong>Newton's Laws:</strong> Second law expressed as F = dp/dt (derivative of momentum)</li>
+                                <li><strong>Electromagnetism:</strong> Maxwell's equations use curl and divergence operators</li>
+                                <li><strong>Quantum Mechanics:</strong> Schrödinger equation is a partial differential equation</li>
+                                <li><strong>Thermodynamics:</strong> Partial derivatives relate state variables (P, V, T)</li>
+                                <li><strong>Classical Mechanics:</strong> Lagrangian and Hamiltonian formulations</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="mt-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                            View All Applications
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Problems -->
+        <div>
+            <h2 class="text-2xl font-semibold text-dark mb-8">Interactive Practice Problems</h2>
+            <div class="grid gap-6 md:grid-cols-2">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 mr-3">
+                                Beginner
+                            </span>
+                            <span class="text-sm text-gray-500">5 problems</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-dark mb-2">Basic Derivatives</h3>
+                        <p class="text-gray-600 mb-4">
+                            Practice finding derivatives of polynomials, exponentials, and trigonometric functions.
+                        </p>
+                        <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-primary bg-blue-50 hover:bg-blue-100">
+                            Start Practice
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800 mr-3">
+                                Intermediate
+                            </span>
+                            <span class="text-sm text-gray-500">7 problems</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-dark mb-2">Physics Applications</h3>
+                        <p class="text-gray-600 mb-4">
+                            Solve real physics problems using differentiation and integration techniques.
+                        </p>
+                        <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-primary bg-blue-50 hover:bg-blue-100">
+                            Start Practice
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-dark text-gray-300">
+        <!-- Footer content from index.html -->
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>

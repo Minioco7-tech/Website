@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results | MathPhys Nexus</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <!-- Navigation content from index.html -->
+    </nav>
+
+    <!-- Search Results Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-dark mb-2">Search Results</h1>
+            <div class="flex items-center">
+                <p class="text-gray-600">Showing results for:</p>
+                <div class="ml-2 px-3 py-1 bg-accent text-primary rounded-full text-sm font-medium">"partial derivatives"</div>
+                <span class="ml-2 text-gray-500">(24 results found)</span>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="flex flex-wrap items-center gap-4">
+                <div>
+                    <label for="category-filter" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                    <select id="category-filter" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+                        <option>All Categories</option>
+                        <option>Calculus</option>
+                        <option>Linear Algebra</option>
+                        <option>Vectors & Geometry</option>
+                        <option>Differential Equations</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="difficulty-filter" class="block text-sm font-medium text-gray-700 mb-1">Difficulty</label>
+                    <select id="difficulty-filter" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+                        <option>All Levels</option>
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="type-filter" class="block text-sm font-medium text-gray-700 mb-1">Content Type</label>
+                    <select id="type-filter" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring-primary">
+                        <option>All Types</option>
+                        <option>Concepts</option>
+                        <option>Applications</option>
+                        <option>Practice Problems</option>
+                        <option>Video Tutorials</option>
+                    </select>
+                </div>
+                <button class="mt-6 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                    Apply Filters
+                </button>
+            </div>
+        </div>
+
+        <!-- Search Results List -->
+        <div class="space-y-6">
+            <!-- Result 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div class="p-6">
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-dark mb-1">
+                                <a href="topic.html" class="hover:text-primary">Partial Derivatives</a>
+                            </h3>
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>Calculus</span>
+                                <span class="mx-2">•</span>
+                                <span>Intermediate</span>
+                            </div>
+                            <p class="text-gray-700 mb-3">
+                                Understanding how functions change with respect to one variable while keeping others constant, with applications in thermodynamics and electromagnetism.
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center ml-4">
+                            <span class="text-xs text-gray-500 mb-1">Relevance</span>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                98%
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                            Concept
+                        </span>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                            Thermodynamics
+                        </span>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                            Worked Example
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div class="p-6">
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-dark mb-1">
+                                <a href="#" class="hover:text-primary">Heat Capacity and Partial Derivatives</a>
+                            </h3>
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>Thermodynamics</span>
+                                <span class="mx-2">•</span>
+                                <span>Advanced</span>
+                            </div>
+                            <p class="text-gray-700 mb-3">
+                                Detailed explanation of how partial derivatives relate heat capacity at constant volume and pressure to other thermodynamic quantities.
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center ml-4">
+                            <span class="text-xs text-gray-500 mb-1">Relevance</span>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                87%
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                            Application
+                        </span>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                            Video Tutorial
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div class="p-6">
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-dark mb-1">
+                                <a href="#" class="hover:text-primary">Practice Problems: Partial Derivatives</a>
+                            </h3>
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>Calculus</span>
+                                <span class="mx-2">•</span>
+                                <span>Intermediate</span>
+                            </div>
+                            <p class="text-gray-700 mb-3">
+                                Set of 8 practice problems with step-by-step solutions, covering basic partial derivatives to applications in physics contexts.
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center ml-4">
+                            <span class="text-xs text-gray-500 mb-1">Relevance</span>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                79%
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+                            Practice Problems
+                        </span>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-pink-100 text-pink-800">
+                            Solutions Included
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result 4 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <div class="p-6">
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold text-dark mb-1">
+                                <a href="#" class="hover:text-primary">Chain Rule for Partial Derivatives</a>
+                            </h3>
+                            <div class="flex items-center text-sm text-gray-500 mb-2">
+                                <span>Calculus</span>
+                                <span class="mx-2">•</span>
+                                <span>Advanced</span>
+                            </div>
+                            <p class="text-gray-700 mb-3">
+                                Extending partial derivatives to composite functions, with examples from fluid mechanics and thermodynamics.
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center ml-4">
+                            <span class="text-xs text-gray-500 mb-1">Relevance</span>
+                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                65%
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                            Concept
+                        </span>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                            Fluid Mechanics
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex items-center justify-between mt-8">
+                <div>
+                    <p class="text-sm text-gray-700">
+                        Showing <span class="font-medium">1</span> to <span class="font-medium">4</span> of <span class="font-medium">24</span> results
+                    </p>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                        Previous
+                    </button>
+                    <button class="px-4 py-2 border border-primary rounded-md text-sm font-medium text-primary bg-white hover:bg-blue-50">
+                        1
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                        2
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                        3
+                    </button>
+                    <span class="px-4 py-2 text-gray-500">...</span>
+                    <button class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                        6
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                        Next
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-dark text-gray-300">
+        <!-- Footer content from index.html -->
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>

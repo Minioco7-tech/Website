@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partial Derivatives | MathPhys Nexus</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        .math-equation {
+            font-family: "Cambria Math", "Latin Modern Math", serif;
+            font-size: 1.1em;
+        }
+        .solution-step {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .solution-step.active {
+            max-height: 500px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <!-- Navigation content from index.html -->
+    </nav>
+
+    <!-- Topic Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="lg:flex lg:space-x-8">
+            <!-- Main Content -->
+            <div class="lg:w-2/3">
+                <!-- Breadcrumb -->
+                <nav class="flex mb-6" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                        <li class="inline-flex items-center">
+                            <a href="index.html" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-primary">
+                                <i data-feather="home" class="mr-2 w-4 h-4"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <i data-feather="chevron-right" class="w-4 h-4 text-gray-400"></i>
+                                <a href="#" class="ml-1 text-sm font-medium text-gray-500 hover:text-primary md:ml-2">Calculus</a>
+                            </div>
+                        </li>
+                        <li aria-current="page">
+                            <div class="flex items-center">
+                                <i data-feather="chevron-right" class="w-4 h-4 text-gray-400"></i>
+                                <span class="ml-1 text-sm font-medium text-gray-700 md:ml-2">Partial Derivatives</span>
+                            </div>
+                        </li>
+                    </ol>
+                </nav>
+
+                <!-- Topic Header -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-dark mb-2">Partial Derivatives</h1>
+                    <p class="text-lg text-gray-600">Understanding how functions change with respect to one variable while keeping others constant</p>
+                </div>
+
+                <!-- Concept Explanation -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="text-2xl font-semibold text-dark mb-4">Concept Overview</h2>
+                    <p class="text-gray-700 mb-4">
+                        A partial derivative of a function of several variables is its derivative with respect to one of those variables,
+                        with the others held constant. Partial derivatives are used in vector calculus and differential geometry.
+                    </p>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <p class="font-medium text-gray-800 mb-2">Mathematically:</p>
+                        <p class="math-equation">
+                            For a function \( f(x,y) \), the partial derivative with respect to \( x \) is:
+                            \[ \frac{\partial f}{\partial x} = \lim_{h \to 0} \frac{f(x+h,y) - f(x,y)}{h} \]
+                        </p>
+                    </div>
+                    <div class="prose max-w-none">
+                        <p>
+                            In physics, partial derivatives appear in thermodynamics (where we hold certain variables constant),
+                            electromagnetism (Maxwell's equations), quantum mechanics (Schrödinger equation), and many other areas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Physics Application -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="text-2xl font-semibold text-dark mb-4">Physics Application: Thermodynamics</h2>
+                    <p class="text-gray-700 mb-4">
+                        In thermodynamics, partial derivatives are essential for understanding how state variables relate to each other.
+                    </p>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <p class="font-medium text-gray-800 mb-2">Example: Heat Capacity</p>
+                        <p class="math-equation">
+                            The heat capacity at constant volume is:
+                            \[ C_V = \left( \frac{\partial U}{\partial T} \right)_V \]
+                            where \( U \) is internal energy, \( T \) is temperature, and the subscript \( V \) indicates volume is held constant.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Worked Example -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="text-2xl font-semibold text-dark mb-4">Worked Example</h2>
+                    <div class="prose max-w-none mb-6">
+                        <p>
+                            <strong>Problem:</strong> The pressure \( P \), volume \( V \), and temperature \( T \) of an ideal gas are related by the equation \( PV = nRT \), where \( n \) is the amount of substance and \( R \) is the ideal gas constant. Find \( \left( \frac{\partial P}{\partial T} \right)_V \) and interpret its physical meaning.
+                        </p>
+                    </div>
+                    <div id="solution-steps">
+                        <button onclick="toggleStep(1)" class="flex items-center justify-between w-full px-4 py-3 bg-gray-100 rounded-lg text-left font-medium text-primary hover:bg-gray-200">
+                            <span>Step 1: Solve for P</span>
+                            <i data-feather="chevron-down" class="w-5 h-5 transform transition-transform"></i>
+                        </button>
+                        <div id="step-1" class="solution-step bg-gray-50 px-4 py-3 rounded-b-lg">
+                            <p class="math-equation">
+                                From the ideal gas law: 
+                                \[ P = \frac{nRT}{V} \]
+                            </p>
+                        </div>
+
+                        <button onclick="toggleStep(2)" class="flex items-center justify-between w-full px-4 py-3 bg-gray-100 rounded-lg text-left font-medium text-primary hover:bg-gray-200 mt-2">
+                            <span>Step 2: Differentiate with respect to T</span>
+                            <i data-feather="chevron-down" class="w-5 h-5 transform transition-transform"></i>
+                        </button>
+                        <div id="step-2" class="solution-step bg-gray-50 px-4 py-3 rounded-b-lg">
+                            <p class="math-equation">
+                                Differentiating both sides with respect to \( T \) while treating \( V \) as constant:
+                                \[ \left( \frac{\partial P}{\partial T} \right)_V = \frac{\partial}{\partial T} \left( \frac{nRT}{V} \right) = \frac{nR}{V} \]
+                            </p>
+                        </div>
+
+                        <button onclick="toggleStep(3)" class="flex items-center justify-between w-full px-4 py-3 bg-gray-100 rounded-lg text-left font-medium text-primary hover:bg-gray-200 mt-2">
+                            <span>Step 3: Physical Interpretation</span>
+                            <i data-feather="chevron-down" class="w-5 h-5 transform transition-transform"></i>
+                        </button>
+                        <div id="step-3" class="solution-step bg-gray-50 px-4 py-3 rounded-b-lg">
+                            <p>
+                                The result \( \frac{nR}{V} \) represents how much the pressure changes per unit temperature increase when the volume is held constant. 
+                                This is directly proportional to the amount of gas and inversely proportional to the volume.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practice Problems -->
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                    <h2 class="text-2xl font-semibold text-dark mb-4">Practice Problems</h2>
+                    
+                    <div class="border border-gray-200 rounded-lg overflow-hidden mb-6">
+                        <div class="p-4 bg-gray-50 border-b border-gray-200">
+                            <h3 class="font-medium text-dark">Problem 1</h3>
+                        </div>
+                        <div class="p-4">
+                            <p class="mb-4">
+                                For the function \( f(x,y) = x^2 y + y^3 \), find \( \frac{\partial f}{\partial x} \) and \( \frac{\partial f}{\partial y} \).
+                            </p>
+                            <div class="flex space-x-4">
+                                <button onclick="toggleHint('hint-1')" class="px-4 py-2 bg-accent text-primary rounded-md hover:bg-primary hover:text-white">
+                                    Show Hint
+                                </button>
+                                <button onclick="toggleAnswer('answer-1')" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300">
+                                    Show Answer
+                                </button>
+                            </div>
+                            <div id="hint-1" class="solution-step mt-4 bg-yellow-50 p-4 rounded-md">
+                                <p>
+                                    Remember that when taking partial derivatives with respect to one variable, treat all other variables as constants.
+                                </p>
+                            </div>
+                            <div id="answer-1" class="solution-step mt-4 bg-green-50 p-4 rounded-md">
+                                <p class="math-equation">
+                                    \( \frac{\partial f}{\partial x} = 2xy \) <br>
+                                    \( \frac{\partial f}{\partial y} = x^2 + 3y^2 \)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <div class="p-4 bg-gray-50 border-b border-gray-200">
+                            <h3 class="font-medium text-dark">Problem 2</h3>
+                        </div>
+                        <div class="p-4">
+                            <p class="mb-4">
+                                In thermodynamics, the enthalpy \( H \) is defined as \( H = U + PV \), where \( U \) is internal energy, \( P \) is pressure, and \( V \) is volume. Find an expression for the heat capacity at constant pressure \( C_P = \left( \frac{\partial H}{\partial T} \right)_P \) in terms of partial derivatives of \( U \).
+                            </p>
+                            <div class="flex space-x-4">
+                                <button onclick="toggleHint('hint-2')" class="px-4 py-2 bg-accent text-primary rounded-md hover:bg-primary hover:text-white">
+                                    Show Hint
+                                </button>
+                                <button onclick="toggleAnswer('answer-2')" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300">
+                                    Show Answer
+                                </button>
+                            </div>
+                            <div id="hint-2" class="solution-step mt-4 bg-yellow-50 p-4 rounded-md">
+                                <p>
+                                    Use the product rule when differentiating \( PV \), and remember that \( P \) is held constant in this partial derivative.
+                                </p>
+                            </div>
+                            <div id="answer-2" class="solution-step mt-4 bg-green-50 p-4 rounded-md">
+                                <p class="math-equation">
+                                    \( C_P = \left( \frac{\partial U}{\partial T} \right)_P + P \left( \frac{\partial V}{\partial T} \right)_P \)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:w-1/3">
+                <div class="bg-white rounded-lg shadow-md p-6 mb-8 sticky top-20">
+                    <h2 class="text-xl font-semibold text-dark mb-4">About This Topic</h2>
+                    <div class="flex items-center mb-4">
+                        <i data-feather="clock" class="text-primary mr-2"></i>
+                        <span>Estimated study time: 45 minutes</span>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <i data-feather="bar-chart-2" class="text-primary mr-2"></i>
+                        <span>Difficulty: Intermediate</span>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-medium text-gray-800 mb-2">Prerequisites</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-primary hover:underline">Multivariable Functions</a></li>
+                            <li><a href="#" class="text-primary hover:underline">Basic Differentiation</a></li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-medium text-gray-800 mb-2">Related Topics</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-primary hover:underline">Total Differentials</a></li>
+                            <li><a href="#" class="text-primary hover:underline">Chain Rule for Partial Derivatives</a></li>
+                            <li><a href="#" class="text-primary hover:underline">Maxwell Relations (Thermodynamics)</a></li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 border-t border-gray-200">
+                        <h3 class="font-medium text-gray-800 mb-2">Progress</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
+                            <div class="bg-primary h-2.5 rounded-full" style="width: 60%"></div>
+                        </div>
+                        <p class="text-sm text-gray-600">You've completed 60% of this topic</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-semibold text-dark mb-4">Resources</h2>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="#" class="flex items-center text-primary hover:text-secondary">
+                                <i data-feather="file-text" class="mr-3"></i>
+                                <span>Lecture Notes on Partial Derivatives</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center text-primary hover:text-secondary">
+                                <i data-feather="youtube" class="mr-3"></i>
+                                <span>Video: Partial Derivatives in Physics</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center text-primary hover:text-secondary">
+                                <i data-feather="book" class="mr-3"></i>
+                                <span>Recommended Textbook Chapter</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-dark text-gray-300">
+        <!-- Footer content from index.html -->
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        feather.replace();
+        
+        // MathJax configuration (would be loaded from CDN in production)
+        // This is just a placeholder to show where the math rendering would happen
+        function renderMath() {
+            if (typeof MathJax !== 'undefined') {
+                MathJax.typeset();
+            }
+        }
+        
+        // Toggle solution steps
+        function toggleStep(stepNumber) {
+            const step = document.getElementById(`step-${stepNumber}`);
+            const button = step.previousElementSibling;
+            const icon = button.querySelector('i');
+            
+            step.classList.toggle('active');
+            
+            if (step.classList.contains('active')) {
+                step.style.maxHeight = step.scrollHeight + 'px';
+                icon.classList.add('rotate-180');
+            } else {
+                step.style.maxHeight = '0';
+                icon.classList.remove('rotate-180');
+            }
+        }
+        
+        // Toggle hints and answers
+        function toggleHint(id) {
+            const hint = document.getElementById(id);
+            hint.classList.toggle('active');
+            hint.style.maxHeight = hint.classList.contains('active') ? hint.scrollHeight + 'px' : '0';
+        }
+        
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('active');
+            answer.style.maxHeight = answer.classList.contains('active') ? answer.scrollHeight + 'px' : '0';
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMath();
+        });
+    </script>
+</body>
+</html>

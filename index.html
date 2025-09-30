@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathPhys Nexus | Master Physics Through Math</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#1E40AF',
+                        accent: '#93C5FD',
+                        dark: '#1F2937',
+                        light: '#F9FAFB'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .search-results {
+            display: none;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .topic-gradient {
+            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="zap" class="text-primary h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-bold text-dark">MathPhys Nexus</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <!-- Main Categories -->
+                        <div class="relative dropdown inline-block">
+                            <button class="inline-flex items-center px-3 py-2 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-primary">
+                                Algebra & Trig
+                                <i data-feather="chevron-down" class="ml-1 w-4 h-4"></i>
+                            </button>
+                            <div class="dropdown-menu absolute hidden z-10 w-56 mt-2 origin-top-left bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+                                <div class="py-1">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Quadratic Equations</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Trigonometric Identities</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Complex Numbers</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Repeat for other categories -->
+                        <div class="relative dropdown inline-block">
+                            <button class="inline-flex items-center px-3 py-2 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-primary">
+                                Calculus
+                                <i data-feather="chevron-down" class="ml-1 w-4 h-4"></i>
+                            </button>
+                            <div class="dropdown-menu absolute hidden z-10 w-56 mt-2 origin-top-left bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+                                <div class="py-1">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Derivatives</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Integrals</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Multivariable Calculus</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Vector Calculus</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative dropdown inline-block">
+                            <button class="inline-flex items-center px-3 py-2 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-primary">
+                                Linear Algebra
+                                <i data-feather="chevron-down" class="ml-1 w-4 h-4"></i>
+                            </button>
+                            <div class="dropdown-menu absolute hidden z-10 w-56 mt-2 origin-top-left bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+                                <div class="py-1">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Matrices</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Eigenvalues & Eigenvectors</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Determinants</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Linear Transformations</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative dropdown inline-block">
+                            <button class="inline-flex items-center px-3 py-2 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-primary">
+                                Vectors & Geometry
+                                <i data-feather="chevron-down" class="ml-1 w-4 h-4"></i>
+                            </button>
+                            <div class="dropdown-menu absolute hidden z-10 w-56 mt-2 origin-top-left bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+                                <div class="py-1">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">3D Vectors</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Dot Product</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Cross Product</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Vector Calculus</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative dropdown inline-block">
+                            <button class="inline-flex items-center px-3 py-2 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-primary">
+                                Differential Equations
+                                <i data-feather="chevron-down" class="ml-1 w-4 h-4"></i>
+                            </button>
+                            <div class="dropdown-menu absolute hidden z-10 w-56 mt-2 origin-top-left bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+                                <div class="py-1">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">First-Order ODEs</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Second-Order ODEs</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Partial Differential Equations</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Laplace Transforms</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative dropdown inline-block">
+                            <button class="inline-flex items-center px-3 py-2 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-primary">
+                                Probability & Stats
+                                <i data-feather="chevron-down" class="ml-1 w-4 h-4"></i>
+                            </button>
+                            <div class="dropdown-menu absolute hidden z-10 w-56 mt-2 origin-top-left bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+                                <div class="py-1">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Probability Distributions</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Statistical Mechanics</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Error Analysis</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent">Bayesian Statistics</a>
+                                </div>
+                            </div>
+                        </div>
+</div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <div class="relative mx-4">
+                        <input type="text" id="search-input" class="h-10 w-64 px-4 pr-10 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Search topics...">
+                        <button id="search-button" class="absolute right-2 top-2 text-gray-500">
+                            <i data-feather="search" class="h-5 w-5"></i>
+                        </button>
+                        <div id="search-results" class="search-results absolute z-10 w-full mt-1 bg-white rounded-md shadow-lg max-h-96 overflow-y-auto"></div>
+                    </div>
+                    <button class="ml-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                        Sign In
+                    </button>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary">
+                        <i data-feather="menu" class="block h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="topic-gradient text-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                    Master the math that makes physics make sense
+                </h1>
+                <p class="mt-6 max-w-lg mx-auto text-xl">
+                    Bridge the gap between abstract mathematics and practical physics with interactive lessons and real-world applications.
+                </p>
+                <div class="mt-10 relative max-w-md mx-auto">
+                    <input type="text" id="hero-search" class="block w-full rounded-full border-transparent px-5 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary" placeholder="Search math topics...">
+                    <div id="hero-search-results" class="search-results absolute z-10 w-full mt-1 bg-white rounded-md shadow-lg max-h-96 overflow-y-auto text-gray-800"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Topics -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 class="text-3xl font-bold text-dark mb-8">Featured Topics</h2>
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Topic Card 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+                <img src="http://static.photos/science/640x360/1" alt="3D Vectors" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-dark mb-2">3D Vectors</h3>
+                    <p class="text-gray-600 mb-4">Essential for describing forces, fields, and motion in three-dimensional space.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-accent text-primary">
+                            Vectors & Geometry
+                        </span>
+                        <a href="#" class="text-primary font-medium hover:text-secondary">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic Card 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+                <img src="http://static.photos/technology/640x360/2" alt="Partial Derivatives" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-dark mb-2">Partial Derivatives</h3>
+                    <p class="text-gray-600 mb-4">Key for understanding thermodynamics, electromagnetism, and quantum mechanics.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-accent text-primary">
+                            Calculus
+                        </span>
+                        <a href="#" class="text-primary font-medium hover:text-secondary">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topic Card 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 card-hover">
+                <img src="http://static.photos/education/640x360/3" alt="Eigenvalues" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-dark mb-2">Eigenvalues</h3>
+                    <p class="text-gray-600 mb-4">Fundamental in quantum mechanics, stability analysis, and principal component analysis.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-accent text-primary">
+                            Linear Algebra
+                        </span>
+                        <a href="#" class="text-primary font-medium hover:text-secondary">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-primary font-semibold tracking-wide uppercase">Learning Path</h2>
+                <p class="mt-2 text-3xl font-extrabold text-dark sm:text-4xl">
+                    How MathPhys Nexus Works
+                </p>
+            </div>
+            <div class="mt-10">
+                <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
+                                <i data-feather="book-open" class="h-6 w-6"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-dark">Learn the Concept</h3>
+                            <p class="mt-2 text-gray-600">
+                                Clear explanations of mathematical concepts with physics context.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
+                                <i data-feather="zap" class="h-6 w-6"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-dark">Physics Applications</h3>
+                            <p class="mt-2 text-gray-600">
+                                See how the math applies to real physics problems and scenarios.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white">
+                                <i data-feather="edit" class="h-6 w-6"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-dark">Practice Problems</h3>
+                            <p class="mt-2 text-gray-600">
+                                Test your understanding with guided practice problems.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="bg-primary text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                <span class="block">Ready to dive in?</span>
+                <span class="block">Start exploring math for physics today.</span>
+            </h2>
+            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                <div class="inline-flex rounded-md shadow">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50">
+                        Browse Topics
+                    </a>
+                </div>
+                <div class="ml-3 inline-flex rounded-md shadow">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-secondary hover:bg-primary">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-gray-300">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white font-semibold uppercase tracking-wider">Categories</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="hover:text-white">Algebra & Trig</a></li>
+                        <li><a href="#" class="hover:text-white">Calculus</a></li>
+                        <li><a href="#" class="hover:text-white">Linear Algebra</a></li>
+                        <li><a href="#" class="hover:text-white">Vectors & Geometry</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold uppercase tracking-wider">Resources</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="hover:text-white">Practice Problems</a></li>
+                        <li><a href="#" class="hover:text-white">Physics Applications</a></li>
+                        <li><a href="#" class="hover:text-white">Formula Sheets</a></li>
+                        <li><a href="#" class="hover:text-white">Video Tutorials</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold uppercase tracking-wider">Company</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="hover:text-white">About</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                        <li><a href="#" class="hover:text-white">Careers</a></li>
+                        <li><a href="#" class="hover:text-white">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold uppercase tracking-wider">Connect</h3>
+                    <div class="mt-4 flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="twitter" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="youtube" class="h-6 w-6"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <p class="text-gray-400">Subscribe to our newsletter</p>
+                        <div class="mt-2 flex">
+                            <input type="email" class="flex-1 px-3 py-2 border border-gray-700 bg-gray-800 focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Your email">
+                            <button class="ml-2 px-4 py-2 bg-primary text-white font-medium hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                                Join
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2023 MathPhys Nexus. All rights reserved.
+                </p>
+                <div class="mt-4 md:mt-0 flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // Sample search data
+        const topics = [
+            { title: "3D Vectors", category: "Vectors & Geometry", url: "#" },
+            { title: "Partial Derivatives", category: "Calculus", url: "#" },
+            { title: "Eigenvalues", category: "Linear Algebra", url: "#" },
+            { title: "Trigonometric Identities", category: "Algebra & Trig", url: "#" },
+            { title: "Complex Numbers", category: "Algebra & Trig", url: "#" },
+            { title: "Matrix Operations", category: "Linear Algebra", url: "#" },
+            { title: "Curl and Divergence", category: "Calculus", url: "#" },
+            { title: "Probability Distributions", category: "Probability & Stats", url: "#" }
+        ];
+
+        // Search functionality
+        function performSearch(query, resultsElement) {
+            if (query.length < 2) {
+                resultsElement.style.display = 'none';
+                return;
+            }
+
+            const filteredTopics = topics.filter(topic => 
+                topic.title.toLowerCase().includes(query.toLowerCase()) || 
+                topic.category.toLowerCase().includes(query.toLowerCase())
+            );
+
+            if (filteredTopics.length === 0) {
+                resultsElement.innerHTML = '<div class="p-4 text-gray-700">No results found</div>';
+                resultsElement.style.display = 'block';
+                return;
+            }
+
+            let html = '';
+            filteredTopics.forEach(topic => {
+                html += `
+                    <a href="${topic.url}" class="block px-4 py-3 text-gray-800 hover:bg-gray-100 border-b border-gray-200 last:border-b-0">
+                        <div class="font-medium">${topic.title}</div>
+                        <div class="text-sm text-gray-500">${topic.category}</div>
+                    </a>
+                `;
+            });
+
+            resultsElement.innerHTML = html;
+            resultsElement.style.display = 'block';
+        }
+
+        // Setup search event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInputs = [
+                document.getElementById('search-input'),
+                document.getElementById('hero-search')
+            ];
+            
+            const searchResults = [
+                document.getElementById('search-results'),
+                document.getElementById('hero-search-results')
+            ];
+
+            searchInputs.forEach((input, index) => {
+                input.addEventListener('input', function() {
+                    performSearch(this.value, searchResults[index]);
+                });
+
+                input.addEventListener('focus', function() {
+                    if (this.value.length >= 2) {
+                        performSearch(this.value, searchResults[index]);
+                    }
+                });
+
+                // Hide results when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!input.contains(e.target) && !searchResults[index].contains(e.target)) {
+                        searchResults[index].style.display = 'none';
+                    }
+                });
+            });
+
+            // Search button click handler
+            document.getElementById('search-button').addEventListener('click', function() {
+                const query = document.getElementById('search-input').value;
+                if (query) {
+                    // In a real app, this would navigate to search results
+                    alert(`Searching for: ${query}`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
